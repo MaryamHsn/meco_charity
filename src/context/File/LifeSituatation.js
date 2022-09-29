@@ -1,39 +1,4 @@
  
-
-// // const columns: GridColDef[] = [
-// //   { field: 'id', headerName: 'ID', width: 70 },
-// //   { field: 'firstName', headerName: 'First name', width: 130 },
-// //   { field: 'lastName', headerName: 'Last name', width: 130 },
-// //   {
-// //     field: 'age',
-// //     headerName: 'Age',
-// //     type: 'number',
-// //     width: 90,
-// //   },
-// //   {
-// //     field: 'fullName',
-// //     headerName: 'Full name',
-// //     description: 'This column has a value getter and is not sortable.',
-// //     sortable: false,
-// //     width: 160,
-// //     valueGetter: (params: GridValueGetterParams) =>
-// //       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-// //   },
-// // ];
-
-// // export default function DataTable() {
-// //   return (
-// //     <div style={{ height: 400, width: '100%' }}>
-// //       <DataGrid
-// //         rows={rows}
-// //         columns={columns}
-// //         pageSize={5}
-// //         rowsPerPageOptions={[5]}
-// //         checkboxSelection
-// //       />
-// //     </div>
-// //   );
-// // }
 //  import React, { Component } from 'react'
  
 //  export default class LifeSituatation extends Component {
@@ -85,81 +50,99 @@
 import React, { useState }  from 'react'
 
 export default function LifeSituatation(){
-  const [data, setData] = useState([])
-  const [item,setItem] = useState('');
-  const [items,setItems] = useState([]); 
-  const [rows,setRows] =useState([
-    <tr>
-    <td><input type='text'></input></td>
-     <td><input type='text'></input></td>
-     <td><input type='text'></input></td>
-    <td><button onClick={()=>deleteRow}>del</button></td>
-    </tr>
-  ]);
-  function getId () {
-    return items.length ? items[items.length - 1].id + 1 : 1
-  }
-  const handleInput = ({name, value}) => {
-    setItem({...item, [name]:value, id:getId()})
+   //use of hook for couting
+   const [noOfRows, setNoOfRows] = useState(1);
+   const [todos, setTodos] = useState([])
+   const [todo, setTodo] = useState({})
+   const options = [
+    { label: 'دارد', value: 'have' },
+    { label: 'ندارد', value: 'haneNot' },
+    { label: 'فوت شده', value: 'died' },
+    { label: 'مطلقه', value: 'widow' },
+    { label: 'از کار افتاده', value: 'handicap' },
+    { label: 'مريض', value: 'sick' },
+    { label: 'زنداني', value: 'prisoner' },
+    { label: 'ترک خانواده', value: 'leave' },
+  ];
+
+  const [value, setValue] = React.useState('fruit');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+   function getId () {
+     return todos.length ? todos[todos.length - 1].id + 1 : 1
    }
-    var add2=()=>{
-    console.log('Please, fill empty spaces')
+ 
+   function addTodo (e) {
+     e.preventDefault()
+     setTodos(todos => [...todos, { title: todo, id: getId() }])
+     setTodo('')
+   }
+   function Send(e){
+    e.preventDefault()
     alert('hi')
-    // if(item.title === '' || item.text === ''){
-    //  console.log('Please, fill empty spaces')
-    // }else{
-    //  setData({...data, item})
-    // }
-  }
+    
+   }
+ function Add(){ 
+  setNoOfRows(noOfRows + 1)
+  console.log('todo:  '+todo) 
+ }
+ function Remove(){ 
+  setNoOfRows(noOfRows - 1) 
+ }
+   return (
+     <div className="card-form-table"> 
+     <div>
+      <label>وضعیت همسر</label>
+      <select value={value} onChange={handleChange}>
+          {options.map((option) => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+     </div>
+       <table>
+         <thead>
+           <tr>
+             <th >نام</th>
+             <th >نام خانوادگی</th>
+             <th >نسبت</th>
+             <th >سن</th>
+             <th  >تحصيلات</th>
+             <th >شغل</th>
+             <th >وضعیت تاهل</th>
+             <th >وضعیت جسمي و روحي</th>
+             <th>توضيحات</th> 
+           </tr>
+         </thead>
+         <tbody>
+         {/* {[...Array(noOfRows)].map((elementInArray, index) => { */}
+         {[...Array(noOfRows)].map(todo => {
+          
+               return (
+                 <tr  > 
+                 <td><input type='text' className='table-input' onChange={(e)=>setTodo(todo.fName=e.target.value)} ></input></td>
+                 <td><input type='text' className='table-input' ></input></td>
+                 <td><input type='text' className='table-input'></input></td>
+                 <td><input type='text' className='table-input'></input></td>
+                 <td><input type='text' className='table-input'></input></td>
+                 <td><input type='text' className='table-input'></input></td>
+                 <td><input type='text' className='table-input'></input></td>
+                 <td><input type='text' className='table-input' style={{width:'100px'}}></input></td>
+                 <td><input type='text' className='table-input' style={{width:'100px'}}></input></td>
+ 
+               </tr>
+                 );
+             })}
+ 
+             
+             </tbody>
+             </table>
+             <button type="button" className="btn-add-row"  onClick={Add}>اضافه</button>
+             <button type="button" className="btn-del-row" onClick={Remove}>حذف</button>
+             <button type="button" className="btn-submit" onClick={Send}>ارسال</button>
 
-
-  // function addRow (e) {
-  //   e.preventDefault()
-  //   // setItems(items => [...items, { name:item.name , family:item.family , id: getId() }])
-  //   setItems(items => [...items, { name:item , id: getId() }])
-  //   setItem([])
-  // }
-  // function add(){ 
-  //   setRows(...rows,  <tr>
-  //     <td><input type='text'></input></td>
-  //      <td><input type='text'></input></td>
-  //      <td><input type='text'></input></td>
-  //     <td><button onClick={()=>deleteRow}>del</button></td>
-  //     </tr>) 
-  // }
-  var deleteRow =() =>{
-   alert('hi')
-    // setItems(items => items.filter(item => item.id !== id))
-  }
-  return (
-  <div>
-    <input value={item.title} name='title'
-        onChange={(e)=>handleInput(e.target)} />
- <input value={item.text} name='text'
-        onChange={(e)=>handleInput(e.target)} />
- <button onclick={()=>add2}>
-  Add new</button>
-
- {/* {data && 
- data.map(({title, text, id}) => <div key={id}>
-                                  <h1>{title}</h1>
-                                  <p>{text}</p>
-                                 </div>)} */}
-  {/* <button onClick={add}>Add row</button> 
-  <table> 
-    <tbody>
-    <tr>
-      <td >name</td>
-      <td >famiy</td>
-      <td >stat</td>
-    </tr> 
-               {rows}
-  
-   </tbody>
-  </table>  */}
-</div>
-  )
-}
-
-
-
+        </div>
+   );
+ }

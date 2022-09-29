@@ -22,11 +22,11 @@ export default function File() {
     <div className='box'>      
     <div>
       <table>
-      <tbody>
+      <tbody> 
         <tr>
          <td><label >شماره پرونده</label></td>
          <td><input type='text' className='input-form'></input></td>
-        </tr>
+        </tr> 
         <tr><td><label>تاریخ</label></td>
         <td><input type='date' className='input-form'></input></td>
         </tr>
@@ -37,15 +37,16 @@ export default function File() {
        <button className='btn' onClick={()=>setNeedyInformation(!needyInformation)}>
             {needyInformation? <span>- مشخصات نیازمند</span> : <span> + مشخصات نیازمند</span>}
         </button>
-        <p>
+        <div>
             {needyInformation && <NeedyInformation />}
-        </p>
+        </div>
         <button className='btn' onClick={()=>setLifeSituatation(!lifeSituatation)}>
             {lifeSituatation? <span>- وضعیت فرزندان و اعضاء خانواده</span> : <span> + وضعیت فرزندان و اعضاء خانواده</span>}
         </button>
-        <p>
+        <div>
+        {/* <LifeSituatationsecond /> */}
             {lifeSituatation && <LifeSituatationsecond />}
-        </p>
+        </div>
         <button className='btn' onClick={()=>setIncome(!income)}>
             {income? <span> - درآمد</span> : <span>+ درآمد</span>}
         </button>

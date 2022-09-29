@@ -5,6 +5,7 @@ export default function NeedyInformation() {
     <div className='card-form'>
       <div>
         <table>
+          <tbody>
           <tr>
           <td><label >نام و نام خانوادگی نیازمند:</label></td>
           <td><input type='text' className='input-form'></input></td>
@@ -21,10 +22,12 @@ export default function NeedyInformation() {
             <td><label>شماره همراه معرف</label></td>
             <td><input type='text' pattern='[0][9][0-9]{9}'  title='wrong' className='input-form'></input></td>
           </tr>
+          </tbody>
         </table>
       </div>
-      <div  >
+      <div>
         <table >
+        <tbody>
         <tr>
           <td><label>شماره همراه نیازمند</label></td>
           <td><input type='text'  pattern='[0][9][0-9]{9}' className='input-form'></input></td>
@@ -37,6 +40,7 @@ export default function NeedyInformation() {
         <td><label >آدرس نیازمند:</label></td>
         <td><textarea rows='3' className='textarea-form'></textarea></td>
         </tr>
+        </tbody>
         </table>
       </div>
     </div>

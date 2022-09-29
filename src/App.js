@@ -11,6 +11,11 @@ import UserContext from './context/UserContext';
 import  {setToken,getToken,removeToken} from './context/Utils'
 import  request from './context/request';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FileInformations from './context/FileInfornations';
+import Page404 from './context/Page404';
+import FileInformation from './context/FileInformation'
+import Login from './context/Login';
+import RequireAuth from './context/RequireAuth'
 
 function App() {
   const [isLogin,setIsLoggin]=useState(false);
@@ -27,12 +32,18 @@ function App() {
         setIsLoggin(true)
       setToken(response.data.email)
       })
+    //   setUser({id:1 , name:'mary' ,family:'hsn' , token:'123'})
+    //   setIsLoggin(true)
+    // setToken('123')
   }
   function getUser(){
     request('/users/2')
     .then(response=>{
       setUser(response.data)
-      setIsLoggin(true)})
+      setIsLoggin(true)}) 
+    // setUser({id:1 , name:'mary' ,family:'hsn' , token:'123'})
+    // setIsLoggin(true)
+
   }
   function logout(){
     setUser({});
@@ -47,9 +58,16 @@ function App() {
         <div   className='area' >
           <Sidebar  />
           <Routes>
-            <Route path='/File' element={<File />} />
+            <Route path='/File' element={<RequireAuth><File /></RequireAuth>} />
+
+            {/* <Route path='/File' element={<File />} /> */}
+            <Route path='/FileInformation' element={<FileInformations />} />
+            <Route path='/FileInformation/:id' element={<FileInformation />} />
+            {/* <Route path='/Content' element={<RequireAuth><Content /></RequireAuth>} /> */}
             <Route path='/Content' element={<Content />} />
             <Route path='/footer' element={<Footer />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='*' element={<Page404 />} />
 
           </Routes> 
         </div> 
