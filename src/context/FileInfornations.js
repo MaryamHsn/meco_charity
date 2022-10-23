@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 export default function FileInformations() {
     const [files,setFiles]= useState([
-        { id: 1, name: 'Fateme Babaie' },
-        { id: 2, name: 'Sanaz Zareie' },
-        { id: 3, name: 'Maryam Khoshroo' }]
-    );
-    // useEffect(()=>{
-    //     axios('https://jsonplaceholder.typicode.com/users').then(response=>setFiles(response.data))
-    // },[])
+        // { id: 1, name: 'Fateme Babaie' },
+        // { id: 2, name: 'Sanaz Zareie' },
+        // { id: 3, name: 'Maryam Khoshroo' }
+    ]);
+    useEffect(()=>{
+        axios('https://jsonplaceholder.typicode.com/users').then(response=>setFiles(response.data))
+    },[])
     function search(id){
         alert("hi")
         setFiles(item=>{item.id != id && item.filter(id)})
@@ -30,7 +30,7 @@ export default function FileInformations() {
             <tbody>
                 {files.map(file=>(
                 <tr key={file.id}>
-                    <td><Link to={`/FileInformation/${file.id}`} >{file.id}</Link></td>
+                    <td><Link to={`/FileInformation/${file.id}`} >{file.id}-{file.name}</Link></td>
                     <td>{file.name}</td>
                 </tr>
                 ))}

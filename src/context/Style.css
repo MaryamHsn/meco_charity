@@ -192,6 +192,22 @@ a {
     display: flex;
     flex-direction: row;
 }
+/* .input-card {
+    display: static;
+    width:50px;
+    height: 18px;
+    margin: 5px 10px 0px 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    float: right;
+    flex-direction: row;
+} */
 .textarea-form{ 
     height: auto; 
     box-shadow: none; 
@@ -244,16 +260,36 @@ label{
     width: 100%;    
     box-sizing: border-box;  
 }
+.card-label{
+    float: right;
+}
+.card-input{
+    float: right;
+    width: 50px;
+    display: static;
+    width:50px;
+    height: 14px;
+    margin: 1px 2px 1px 2px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    flex-direction: row;
+}
 .table-input{  
     width: 60px;
 } 
-.card-form > div{
+/* .card-form > div{
     flex-direction: row;
     width: 50%;
     margin: 10px;
    padding: 10px;  
     height: auto;  
-}
+} */
 table th{
 border-bottom: #555 1px solid;
 background-color: bisque;
@@ -266,4 +302,5 @@ font-size: 13px;
 p{
     display: flex;
     flex-direction: row;
+    margin: 0px;
 }

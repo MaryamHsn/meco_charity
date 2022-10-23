@@ -65,7 +65,7 @@ export default function LifeSituatation(){
     { label: 'ترک خانواده', value: 'leave' },
   ];
 
-  const [value, setValue] = React.useState('fruit');
+  const [value, setValue] = React.useState('haveNOt');
 
   const handleChange = (event) => {
     setValue(event.target.value);

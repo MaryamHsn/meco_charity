@@ -5,12 +5,12 @@ import axios from 'axios'
 export default function FileInformation() {
     const [file,setFile]= useState({});
     const {id} = useParams();
-    useEffect(()=>{
+    useEffect(()=>{ 
      axios(`https://jsonplaceholder.typicode.com/users/${id}`).then(response=>setFile(response.data))
     },[])
   return (
-    <div>   
-        
+    <div className='box'>   
+        <h2>{file.name}</h2>
     </div>
   )
 }
