@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 
 export default function Income() {
   const [jobStatus,setJobStatus] = useState('withoutJob')
@@ -44,6 +44,31 @@ const calcTotalIncome =()=>{
     setCharity(temp); 
     calcTotalIncome();
   }
+  useEffect=(()=>{ 
+    // console.log("before/ pureIncome :",pureIncome,"charity:  "+charity+" subsidy:  "+subsidy)
+    setTotalIncome(()=>{ 
+    // console.log("after/ pureIncome :",pureIncome,"charity:  "+charity+" subsidy:  "+subsidy)
+      
+      return totalIncome=pureIncome+charity+subsidy
+    })
+    return()=>{
+      setTotalIncome(()=>totalIncome=pureIncome+charity+subsidy)
+    }
+  },[pureIncome,charity,subsidy])
+
+  // const [count, setCount] = useState(0)
+  // useEffect(() => {
+  //   console.log('UseEffect', count)
+  //   setInterval(() => {
+  //     console.log('setInterval', count)
+  //     setCount(s => s + 1)
+  //     /////
+  //       // setCount(count => {
+  //       //   console.log('Set Count:', count)
+  //       //   return count + 1
+  //       // })
+  //   }, 10000)
+  // }, [])
   return (
     <div className='card-form' style={{'flex-direction': 'column'}}>
       <div>
