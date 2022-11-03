@@ -6,7 +6,6 @@ export default function Content() {
   return (
     <div className='box'>
       {isLogin && <span>welcome  {  user.name}</span>}
-      <div>hellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohellohello</div>
-    </div>
+      </div>
   )
 } 

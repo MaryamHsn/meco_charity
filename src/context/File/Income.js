@@ -97,6 +97,15 @@ const calcTotalIncome =()=>{
       <input type='text' className='card-input' onChange={calcCharity}></input><label className='card-label'>ریال</label>
      </div>
     
+     <div>
+      <label className='card-label'>آیا در حال حاضر از دوستان وآشنایان کمک نقدی دریافت می نمایید؟ مقدار و نوع آن را بنویسید</label>
+      <textarea rows='3' className='textarea-card' ></textarea>
+     </div>
+     <div>
+      <label className='card-label'>آیا تحت پوشش بهزیستی، کمیته امداد یا سایر موسسات خیریه هستید؟مقدار و نوع کمک درافتی های ماهانه را به صورت دقیق بنویسید</label>
+      <textarea rows='3' className='textarea-card' ></textarea>
+     </div>
+    
     </div>
   )
 }

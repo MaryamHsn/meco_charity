@@ -18,7 +18,8 @@ import Login from './context/Login';
 import RequireAuth from './context/RequireAuth'
 
 function App() {
-  const [isLogin,setIsLoggin]=useState(false);
+  const [isLogin,setIsLoggin]=useState(true);
+  // const [isLogin,setIsLoggin]=useState(false);
   const [user,setUser]=useState({});
   useEffect(()=>{
     const tok=getToken() 

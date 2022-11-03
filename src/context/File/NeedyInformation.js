@@ -37,7 +37,7 @@ export default function NeedyInformation() {
           <td><input type='text'   className='input-form'></input></td>
         </tr>
         <tr>
-        <td><label >آدرس نیازمند:</label></td>
+         <td><label >آدرس نیازمند:</label></td>
         <td><textarea rows='3' className='textarea-form'></textarea></td>
         </tr>
         </tbody>
