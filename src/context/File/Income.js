@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react';
+import { ShowCardPrice, ShowTextarea } from '../Utils';
 
 export default function Income() {
   const [jobStatus,setJobStatus] = useState('withoutJob')
@@ -79,32 +80,13 @@ const calcTotalIncome =()=>{
           ))}
         </select>
         <input type={input} value={(e)=>setJob(e.target.value)} placeholder='شغل خود را بنویسید' ></input>
-     </div>
-     <div>
-      <label className='card-label'>مجموع درآمد ماهیانه خانوار:</label>
-      <input type='text' className='card-input' value={totalIncome} readOnly ></input><label className='card-label'>ریال</label>
-     </div>
-     <div>
-      <label className='card-label'>مبلغ حقوق ماهیانه:</label>
-      <input type='text' className='card-input' onChange={calcPureIncome}></input><label className='card-label'>ریال</label>
-     </div>
-     <div>
-      <label className='card-label'>یارانه:</label>
-      <input type='text' className='card-input' onChange={calcSubsidy}></input><label className='card-label'>ریال</label>
-     </div>
-     <div>
-      <label className='card-label'>کمکهای نقدی دوستان وآشنایان و خویشاوندان:</label>
-      <input type='text' className='card-input' onChange={calcCharity}></input><label className='card-label'>ریال</label>
-     </div>
-    
-     <div>
-      <label className='card-label'>آیا در حال حاضر از دوستان وآشنایان کمک نقدی دریافت می نمایید؟ مقدار و نوع آن را بنویسید</label>
-      <textarea rows='3' className='textarea-card' ></textarea>
-     </div>
-     <div>
-      <label className='card-label'>آیا تحت پوشش بهزیستی، کمیته امداد یا سایر موسسات خیریه هستید؟مقدار و نوع کمک درافتی های ماهانه را به صورت دقیق بنویسید</label>
-      <textarea rows='3' className='textarea-card' ></textarea>
-     </div>
+     </div> 
+     <ShowCardPrice value='مجموع درآمد ماهیانه خانوار:' onChange={totalIncome} /> 
+     <ShowCardPrice value='مبلغ حقوق ماهیانه:' onChange={calcPureIncome} /> 
+     <ShowCardPrice value='یارانه:' onChange={calcSubsidy} /> 
+     <ShowCardPrice value='کمکهای نقدی دوستان وآشنایان و خویشاوندان:' onChange={calcCharity} /> 
+     <ShowTextarea value='آیا در حال حاضر از دوستان وآشنایان کمک نقدی دریافت می نمایید؟ مقدار و نوع آن را بنویسید' />
+     <ShowTextarea value='آیا تحت پوشش بهزیستی، کمیته امداد یا سایر موسسات خیریه هستید؟مقدار و نوع کمک درافتی های ماهانه را به صورت دقیق بنویسید' />
     
     </div>
   )

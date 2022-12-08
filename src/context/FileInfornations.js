@@ -15,6 +15,9 @@ export default function FileInformations() {
         alert("hi")
         setFiles(item=>{item.id != id && item.filter(id)})
     }
+    function searchByName(name){
+        setFiles(item=>{item.name.contains(name)})
+    }
   return (
     <div className='box'>
         <div> 
@@ -25,12 +28,24 @@ export default function FileInformations() {
         <table>
             <thead>
                 <th>شماره پرونده</th>
-                <th>نام و نام خانوادگی نیازمند</th>
+                <th>نام و نام خانوادگی </th>
+                <th>تاریخ درخواست</th>
+                <th>معرف</th>
+                <th>نتیجه کمیته</th>
+                <th>وضعیت</th>
+                <th>وضعیت نهایی</th>
+                <th>پرداخت بن امیران</th>
             </thead>
             <tbody>
                 {files.map(file=>(
                 <tr key={file.id}>
                     <td><Link to={`/FileInformation/${file.id}`} >{file.id}-{file.name}</Link></td>
+                    <td>{file.name}</td>
+                    <td>{file.name}</td>
+                    <td>{file.name}</td>
+                    <td>{file.name}</td>
+                    <td>{file.name}</td>
+                    <td>{file.name}</td>
                     <td>{file.name}</td>
                 </tr>
                 ))}

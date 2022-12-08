@@ -1,8 +1,12 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
+import Loan from './context/Loan/Loan'
+import Loans from './context/Loan/Loans'
 import Content from './context/Content'
-import Footer from './context/Footer'
+import Transactions from './context/Bank/Transactions'
+import Transaction from './context/Bank/Transaction'
+import Participant from './context/Participant/Participant'
 import Header from './context/Header'
 import Sidebar from './context/Sidebar'
 import File from './context/File/File'
@@ -65,8 +69,11 @@ function App() {
             <Route path='/FileInformation' element={<FileInformations />} />
             <Route path='/FileInformation/:id' element={<FileInformation />} />
             {/* <Route path='/Content' element={<RequireAuth><Content /></RequireAuth>} /> */}
-            <Route path='/Content' element={<Content />} />
-            <Route path='/footer' element={<Footer />} />
+            <Route path='/Participant' element={<Participant />} />
+            <Route path='/Loan' element={<Loans />} />
+            <Route path='/Loan/:id' element={<Loan />} />
+            <Route path='/Transaction' element={<Transactions />} />
+            <Route path='/Transaction/:id' element={<Transaction />} />
             <Route path='/Login' element={<Login />} />
             <Route path='*' element={<Page404 />} />
 
@@ -78,55 +85,4 @@ function App() {
   );
 }
 
-export default App;
-// import { Route, Routes } from 'react-router-dom'
-// import Page404 from './Newfolder/context/404'
-// import About from './Newfolder/context/About'
-// import Contact from './Newfolder/context/Contact'
-// import Dashboard from './Newfolder/context/Dashboard'
-// import Footer from './Newfolder/context/Footer'
-// import Header from './Newfolder/context/Header'
-// import Home from './Newfolder/context/Home'
-// import Login from './Newfolder/context/Login'
-// import Post from './Newfolder/context/Post'
-// import Posts from './Newfolder/context/Posts'
-// import Profile from './Newfolder/context/Profile'
-// import Provider from './Newfolder/context/Provider'
-// import RequireAuth from './Newfolder/context/RequireAuth'
-// import Sidebar from './Newfolder/context/Sidebar' 
-// import './Newfolder/context/style.css'
-
-// export default function App () {
-//   return (
-//     <Provider>
-//       <div>
-//         <Header />
-//         <section style={{ display: 'flex' }}>
-//           <Sidebar />
-//           <Routes>
-//             <Route path='/' element={<Home />} />
-//             <Route path='/contact' element={<Contact />} />
-//             <Route path='/about' element={<About />} />
-//             <Route path='/login' element={<Login />} />
-//             <Route
-//               path='/profile'
-//               element={<RequireAuth element={<Profile />} />}
-//             />
-//             <Route
-//               path='/dashboard'
-//               element={
-//                 <RequireAuth>
-//                   <Dashboard />
-//                 </RequireAuth>
-//               }
-//             />
-//             <Route path='/post' element={<Posts />} />
-//             <Route path='/post/:id' element={<Post />} />
-//             <Route path='*' element={<Page404 />} />
-//           </Routes>
-//         </section>
-//         <Footer />
-//       </div>
-//     </Provider>
-//   )
-// }
+export default App; 

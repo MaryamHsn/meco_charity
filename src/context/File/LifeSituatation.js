@@ -94,14 +94,14 @@ export default function LifeSituatation(){
  }
    return (
      <div className="card-form-table"> 
-     <div>
-      <label>وضعیت همسر</label>
-      <select value={value} onChange={handleChange}>
+      <div>
+       <label>وضعیت همسر</label>
+       <select value={value} onChange={handleChange}>
           {options.map((option) => (
             <option value={option.value}>{option.label}</option>
-          ))}
-        </select>
-     </div>
+        ))}
+       </select>
+       </div>
        <table>
          <thead>
            <tr>
@@ -138,11 +138,11 @@ export default function LifeSituatation(){
  
              
              </tbody>
-             </table>
-             <button type="button" className="btn-add-row"  onClick={Add}>اضافه</button>
-             <button type="button" className="btn-del-row" onClick={Remove}>حذف</button>
-             <button type="button" className="btn-submit" onClick={Send}>ارسال</button>
+       </table>
+        <button type="button" className="btn-add-row"  onClick={Add}>اضافه</button>
+        <button type="button" className="btn-del-row" onClick={Remove}>حذف</button>
+        <button type="button" className="btn-submit" onClick={Send}>ارسال</button>
 
-        </div>
+     </div>
    );
  }

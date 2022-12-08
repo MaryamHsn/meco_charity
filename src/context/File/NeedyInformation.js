@@ -32,7 +32,7 @@ export default function NeedyInformation() {
           <td><label>شماره همراه نیازمند</label></td>
           <td><input type='text'  pattern='[0][9][0-9]{9}' className='input-form'></input></td>
         </tr>
-        <tr>
+        <tr>  
           <td><label>شماره ثابت نیازمند</label></td>
           <td><input type='text'   className='input-form'></input></td>
         </tr>
