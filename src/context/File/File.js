@@ -7,6 +7,7 @@ import Researchers from './Researchers'
 import VisitResult from './VisitResult'
 import OtherItem from './OtherItem';
 import Report from './Report'
+import {PersianDatePicker} from '../Utils'
 
 export default function File() {
   const [helpingRequested,setHelpingRequested]= useState(false);
@@ -28,7 +29,7 @@ export default function File() {
          <td><input type='text' className='input-form'></input></td>
         </tr> 
         <tr><td><label>تاریخ</label></td>
-        <td><input type='date' className='input-form'></input></td>
+        <td  ><PersianDatePicker style={{ color: 'red' }}  /></td>
         </tr>
         </tbody>
       </table>
@@ -89,4 +90,3 @@ export default function File() {
     </div>
   )
 }
- 

@@ -1,11 +1,7 @@
 import cookie from 'js-cookie'
 import { TOKEN_NAME } from './Variables'
-
-// camelCaseNaming
-// snake_case_naming
-// kebab-case-naming
-// PascalCaseNaming
-// UPPER_CASE_NAMING
+import { Datepicker } from '@ijavad805/react-datepicker';
+import moment from 'moment'; 
 
 export function setToken (value) {
   cookie.set(TOKEN_NAME, value)
@@ -70,3 +66,44 @@ export const ShowTextarea = ({ value ,onChange }) => {
    </div>
    );
 };
+export function PersianDatePicker() {
+  return (
+    <Datepicker footer={(moment, setValue) => {
+        return (
+           <>
+             <div
+              onClick={() => {
+                  if (setValue) setValue(moment());
+                }}>
+                امروز
+             </div>
+            </>
+        )
+    }}
+    closeWhenSelectADay={true} // boolean
+    dayEffects={[
+      {
+        day: "2022-09-12",
+        color: "red",
+        dotColor: "red",
+        title: "تاریخ"
+      }
+    ]} 
+    disabled={false} // disable input
+    disabledDate={(day) => day === moment()} // today should be disabled
+    format={"YYYY-MM-DD"}
+    input={<input className='input-form' placeholder='تاریخ را انتخاب کنید'/>} // whatever you want
+    onOpen={() => {
+      console.log("datepicker is open");
+    }} 
+    lang={"fa"} // en and fa
+    loading={false} // show loading in datepicker if is open
+    modeTheme={"light"} // dark and light
+    theme={"red"} // blue , orange , red , green , yellow
+    // defaultValue={moment()}
+    adjustPosition={"auto"} // auto, right-top, left-top, right-bottom, left-bottom, modal
+    onChange={(val: any) => {
+      console.log(val.format());
+    }} />
+  );
+}
