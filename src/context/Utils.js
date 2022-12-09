@@ -92,7 +92,7 @@ export function PersianDatePicker() {
     disabled={false} // disable input
     disabledDate={(day) => day === moment()} // today should be disabled
     format={"YYYY-MM-DD"}
-    input={<input className='input-form' placeholder='تاریخ را انتخاب کنید'/>} // whatever you want
+    input={<input className='input-form' placeholder=''/>} // whatever you want
     onOpen={() => {
       console.log("datepicker is open");
     }} 
