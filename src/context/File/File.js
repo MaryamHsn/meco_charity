@@ -8,6 +8,7 @@ import VisitResult from './VisitResult'
 import OtherItem from './OtherItem';
 import Report from './Report'
 import {PersianDatePicker} from '../Utils'
+import Tablet from '../Table'
 
 export default function File() {
   const [helpingRequested,setHelpingRequested]= useState(false);
@@ -22,6 +23,7 @@ export default function File() {
     return (
     <div className='box'>      
     <div>
+        <Tablet />
       <table>
       <tbody> 
         <tr>
